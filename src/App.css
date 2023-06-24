@@ -1,0 +1,23 @@
+.App {
+  height: 100%;
+}
+
+.App-main-page-content {
+  height: calc(100% - 80px);
+}
+
+.App-main-page-content {
+  display: flex;
+  width: 100%;
+}
+
+.home {
+  width: 50%;
+  margin-top: 20px;
+}
+
+.navbar-menu,
+.sort-menu {
+  width: 25%;
+  margin-top: 20px;
+}
