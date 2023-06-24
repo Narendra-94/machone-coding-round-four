@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { BiComment } from "react-icons/bi";
 import { FiShare2 } from "react-icons/fi";
 import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
@@ -11,6 +11,8 @@ export const Posts = ({ post, convertToLocalTime }) => {
 
   console.log(post.postId, "single");
   const location = useLocation();
+  const [toggle, setToggle] = useState(false);
+  const [commentToggle, setCommentToggle] = useState(false);
 
   return (
     <div className="home-user-feed" key={post.id}>
@@ -51,7 +53,12 @@ export const Posts = ({ post, convertToLocalTime }) => {
               </div>
 
               <FiShare2 />
-              <BsBookmark />
+
+              {toggle ? (
+                <BsBookmarkFill onClick={() => setToggle(false)} />
+              ) : (
+                <BsBookmark onClick={() => setToggle(true)} />
+              )}
             </div>
 
             {location.pathname === `/single-post/${post.postId}` ? (
@@ -79,7 +86,7 @@ export const Posts = ({ post, convertToLocalTime }) => {
                       <div className="feed-btn">
                         <AiOutlineHeart />
                         <BsBookmark />
-                        <BsBookmarkFill />
+
                         <FiShare2 />
                       </div>
                     </div>

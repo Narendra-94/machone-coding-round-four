@@ -5,17 +5,19 @@ import { AiOutlineHome } from "react-icons/ai";
 import { BsRocket } from "react-icons/bs";
 import { FiBookmark } from "react-icons/fi";
 import { CgProfile } from "react-icons/cg";
+import { useNavigate } from "react-router-dom";
 
 export const NavbarMenu = () => {
   const {
     state: { forumData },
   } = useContext(ForumContext);
 
+  const navigate = useNavigate();
   return (
     <div className="navbar-menu">
       <div className="navbar-menu-container">
         <div className="navigation-content">
-          <p>
+          <p onClick={() => navigate("/")} style={{ cursor: "pointer" }}>
             <b>
               <AiOutlineHome />
             </b>
