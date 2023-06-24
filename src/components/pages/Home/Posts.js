@@ -85,7 +85,13 @@ export const Posts = ({ post, convertToLocalTime }) => {
                       </div>
                       <div className="feed-btn">
                         <AiOutlineHeart />
-                        <BsBookmark />
+                        {commentToggle ? (
+                          <BsBookmarkFill
+                            onClick={() => setCommentToggle(false)}
+                          />
+                        ) : (
+                          <BsBookmark onClick={() => setCommentToggle(true)} />
+                        )}
 
                         <FiShare2 />
                       </div>
