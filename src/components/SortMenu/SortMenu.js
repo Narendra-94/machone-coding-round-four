@@ -1,5 +1,6 @@
-import React, { useContext, useReducer } from "react";
+import React, { useContext } from "react";
 import { ForumContext } from "../../context.js/ForumContext";
+import "./SortMenu.css";
 
 export const SortMenu = () => {
   const { dispatch } = useContext(ForumContext);
@@ -14,7 +15,7 @@ export const SortMenu = () => {
   };
 
   return (
-    <div>
+    <div className="sort-menu">
       <select onChange={handleSortChange}>
         <option value="date">Latest Posts</option>
         <option value="upvotes">Most Upvoted</option>

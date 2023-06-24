@@ -15,7 +15,7 @@ function App() {
         <NavbarMenu />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/single-post" element={<SinglePage />} />
+          <Route path="/single-post/:id" element={<SinglePage />} />
         </Routes>
         <SortMenu />
       </div>
