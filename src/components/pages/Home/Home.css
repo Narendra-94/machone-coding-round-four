@@ -83,4 +83,5 @@
   display: flex;
   justify-content: space-between;
   font-size: 2rem;
+  color: var(--forum-theme-main-color);
 }
