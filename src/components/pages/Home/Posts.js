@@ -8,19 +8,32 @@ import { TbTriangleFilled, TbTriangleInverted } from "react-icons/tb";
 
 export const Posts = ({ post, convertToLocalTime }) => {
   const navigate = useNavigate();
-
-  console.log(post.postId, "single");
   const location = useLocation();
   const [toggle, setToggle] = useState(false);
   const [commentToggle, setCommentToggle] = useState(false);
+  const [upvotes, setUpvotes] = useState(post.upvotes);
+
+  const handleUpvote = () => {
+    setUpvotes(upvotes + 1);
+  };
+
+  const handleDownvote = () => {
+    setUpvotes(upvotes - 1);
+  };
 
   return (
     <div className="home-user-feed" key={post.id}>
       <div className="user-feed">
         <div style={{ fontSize: "2rem" }}>
-          <TbTriangleFilled style={{ color: "#584dc8" }} />
-          <div style={{ fontSize: "1.5rem" }}>{post.upvotes}</div>
-          <TbTriangleInverted style={{ color: "grey" }} />
+          <TbTriangleFilled
+            style={{ color: "#584dc8" }}
+            onClick={handleUpvote}
+          />
+          <div style={{ fontSize: "1.5rem" }}>{upvotes}</div>
+          <TbTriangleInverted
+            style={{ color: "grey" }}
+            onClick={handleDownvote}
+          />
         </div>
 
         <div className="user-feed-details">
